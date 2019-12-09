@@ -1,0 +1,28 @@
+{
+    "name": "clevyr/voyagerblog",
+    "description": "Voyager blog package using Laraberg",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Anthony Protano",
+            "email": "anthony@clevyr.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.3",
+        "van-ons/laraberg": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Clevyr\\VoyagerBlog\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Clevyr\\VoyagerBlog\\VoyagerBlogServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}
