@@ -48,21 +48,21 @@ class VoyagerBlogSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'details'       => '',
+                'details'      => '',
                 'order'        => 1,
             ],
             [
                 'data_type_id' => $id,
                 'field'        => 'title',
                 'type'         => 'text',
-                'display_name' => 'Name',
+                'display_name' => 'Title',
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 0,
-                'details'       => '',
+                'details'      => '',
                 'order'        => 2,
             ],
             [
@@ -76,8 +76,12 @@ class VoyagerBlogSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 0,
-                'details'       => '',
-                'order'        => 3,
+                'details'       => json_encode([
+                    'slugify' => [
+                        'origin' => 'title'
+                    ]
+                ]),
+                'order' => 3,
             ],
             [
                 'data_type_id' => $id,
@@ -91,14 +95,14 @@ class VoyagerBlogSeeder extends Seeder
                 'add'          => 1,
                 'delete'       => 0,
                 'details'       => '',
-                'order'        => 4,
+                'order' => 4,
             ],
             [
                 'data_type_id' => $id,
                 'field'        => 'blog_post_belongsto_user_relationship',
                 'type'         => 'relationship',
                 'display_name' => 'Author',
-                'required'     => 0,
+                'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
                 'edit'         => 1,
@@ -113,9 +117,52 @@ class VoyagerBlogSeeder extends Seeder
                     'label' => 'name',
                     'pivot_table' => 'migrations',
                     'pivot' => '0',
-                    'taggable' => '0'
+                    'taggable' => '0',
+                    'display' => [
+                        'width' => '5'
+                    ]
                 ]),
-                'order'        => 4,
+                'order' => 5,
+            ],
+            [
+                'data-type_id' => $id,
+                'field'        => 'published_at',
+                'type'         => 'date',
+                'display_name' => 'Publish Post on',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => json_encode([
+                    'format' => '%Y-%m-%d',
+                    'display' => [
+                        'width' => '5'
+                    ]
+                ]),
+                'order' => 6
+            ],
+            [
+                'data-type_id' => $id,
+                'field'        => 'published',
+                'type'         => 'checkbox',
+                'display_name' => 'Published',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'details'      => json_encode([
+                    "on"  => "Published",
+                    "off" => "Draft",
+                    "checked" => false,
+                    'display' => [
+                        'width' => '2'
+                    ]
+                ]),
+                'order' => 7
             ],
             [
                 'data_type_id' => $id,
@@ -128,8 +175,8 @@ class VoyagerBlogSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 0,
-                'details'       => '',
-                'order'        => 5,
+                'details'      => '',
+                'order'        => 8,
             ],
             [
                 'data_type_id' => $id,
@@ -142,8 +189,8 @@ class VoyagerBlogSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 0,
-                'details'       => '',
-                'order'        => 6,
+                'details'      => '',
+                'order'        => 9,
             ],
             [
                 'data_type_id' => $id,
@@ -156,8 +203,10 @@ class VoyagerBlogSeeder extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'details'       => '',
-                'order'        => 7,
+                'details'      => json_encode([
+                    'format' => '%Y-%m-%d'
+                ]),
+                'order' => 10,
             ],
             [
                 'data_type_id' => $id,
@@ -165,13 +214,15 @@ class VoyagerBlogSeeder extends Seeder
                 'type'         => 'timestamp',
                 'display_name' => 'Updated At',
                 'required'     => 0,
-                'browse'       => 1,
+                'browse'       => 0,
                 'read'         => 1,
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'details'       => '',
-                'order'        => 8,
+                'details'      => json_encode([
+                    'format' => '%Y-%m-%d'
+                ]),
+                'order' => 11,
             ]
         ]);
 
@@ -181,7 +232,7 @@ class VoyagerBlogSeeder extends Seeder
             'title' => 'Blog Posts',
             'url' => '',
             'target' => '_self',
-            'icon_class' => 'voyager-lock',
+            'icon_class' => 'voyager-pen',
             'color' => null,
             'parent_id' => null,
             'order' => 15,

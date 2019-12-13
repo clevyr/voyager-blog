@@ -10,7 +10,8 @@
     ],
     "require": {
         "php": ">=7.1.3",
-        "van-ons/laraberg": "^1.0"
+        "tcg/voyager": "^1.3",
+        "van-ons/laraberg": "dev-master"
     },
     "autoload": {
         "psr-4": {

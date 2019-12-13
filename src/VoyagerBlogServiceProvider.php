@@ -12,7 +12,12 @@ use Illuminate\Support\ServiceProvider;
  */
 class VoyagerBlogServiceProvider extends ServiceProvider
 {
-    public function register()
+    /**
+     * Register
+     *
+     * @return void
+     */
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/config/voyager-blog.php', 'voyager');
     }
@@ -22,8 +27,9 @@ class VoyagerBlogServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
+        // Commands
         if ($this->app->runningInConsole()) {
             $this->commands([
                 VoyagerBlogInstall::class,

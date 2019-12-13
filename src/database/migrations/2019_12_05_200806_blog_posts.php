@@ -24,6 +24,8 @@ class BlogPosts extends Migration
             $table->foreign('author')->references('id')->on('users');
             $table->text('summary');
             $table->text('lb_content')->nullable();
+            $table->boolean('published')->default(false);
+            $table->dateTimeTz('published_at');
             $table->timestamps();
         });
     }
