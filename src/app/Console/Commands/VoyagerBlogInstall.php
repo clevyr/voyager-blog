@@ -3,6 +3,7 @@
 namespace Clevyr\VoyagerBlog\Console\Commands;
 
 use Clevyr\VoyagerBlog\Database\Seeds\VoyagerBlogSeeder;
+use Clevyr\VoyagerBlog\VoyagerBlogServiceProvider;
 use Illuminate\Console\Command;
 
 /**
@@ -44,5 +45,9 @@ class VoyagerBlogInstall extends Command
         // Run seeder
         $this->info('Seeding data');
         $this->call('db:seed', ['--class' => VoyagerBlogSeeder::class]);
+
+        // Run Publish
+        $this->info('Publishing Files');
+        $this->call('vendor:publish', ['--provider' => VoyagerBlogServiceProvider::class]);
     }
 }

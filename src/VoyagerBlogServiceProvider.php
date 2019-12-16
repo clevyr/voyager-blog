@@ -2,6 +2,8 @@
 
 namespace Clevyr\VoyagerBlog;
 
+use App\BlogTag;
+use App\Observers\BlogTagObserver;
 use Clevyr\VoyagerBlog\Console\Commands\VoyagerBlogInstall;
 use Illuminate\Support\ServiceProvider;
 
@@ -36,6 +38,7 @@ class VoyagerBlogServiceProvider extends ServiceProvider
             ]);
         }
 
+        // Published files
         $this->publishes([
             // Config
             __DIR__ . '/config/voyager-blog.php' => config_path('voyager-blog.php'),
@@ -53,6 +56,10 @@ class VoyagerBlogServiceProvider extends ServiceProvider
             __DIR__ . '/app/Fields' => app_path('Fields'),
         ]);
 
+        // Migrations
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+
+        // Blog Tag Observer
+        BlogTag::observe(BlogTagObserver::class);
     }
 }
