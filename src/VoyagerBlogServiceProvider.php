@@ -60,6 +60,8 @@ class VoyagerBlogServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
         // Blog Tag Observer
-        BlogTag::observe(BlogTagObserver::class);
+        if (class_exists(BlogTag::class) && class_exists(BlogTagObserver::class)) {
+            BlogTag::observe(BlogTagObserver::class);
+        }
     }
 }
