@@ -24,10 +24,6 @@ class VoyagerBlogServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/config/voyager-blog.php', 'voyager');
-
-        if (class_exists(Voyager::class)) {
-            Voyager::addFormField(GutenburgField::class);
-        }
     }
 
     /**
