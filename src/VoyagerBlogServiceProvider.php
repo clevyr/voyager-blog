@@ -7,7 +7,7 @@ use App\Observers\BlogTagObserver;
 use Clevyr\VoyagerBlog\Console\Commands\VoyagerBlogInstall;
 use Clevyr\VoyagerBlog\Fields\GutenburgField;
 use Illuminate\Support\ServiceProvider;
-use TCG\Voyager\Voyager;
+use TCG\Voyager\Facades\Voyager;
 
 /**
  * Class VoyagerBlogServiceProvider
