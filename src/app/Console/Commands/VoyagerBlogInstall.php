@@ -16,7 +16,7 @@ class VoyagerBlogInstall extends Command
     /**
      * @var string $name
      */
-    protected $name = 'voyagerblog:install';
+    protected $name = 'voyager-blog:install';
 
     /**
      * @var string $description
@@ -49,5 +49,8 @@ class VoyagerBlogInstall extends Command
         // Run Publish
         $this->info('Publishing Files');
         $this->call('vendor:publish', ['--provider' => VoyagerBlogServiceProvider::class]);
+
+        $this->info('Clearing Cache');
+        $this->call('cache:clear');
     }
 }
