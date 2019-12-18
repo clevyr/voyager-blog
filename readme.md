@@ -8,15 +8,6 @@
 
 - Add the following to your composer.json file
 
-```
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "git@github.com:clevyr/voyager-blog.git"
-        }
-    ],
-```
-
 - Run `composer require clevyr/voyager-blog`
 
 - Run `php artisan voyagerblog:install`
