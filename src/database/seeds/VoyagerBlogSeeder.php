@@ -406,9 +406,9 @@ class VoyagerBlogSeeder extends Seeder
         ]);
 
         // Get base menu
-        $menu_name = DB::table('menus')->find(1)->pluck('name');
+        $menu = DB::table('menus')->find(1)->get('name');
 
         // Clear cache
-        Cache::forget('voyager_menu_' . $menu_name);
+        Cache::forget('voyager_menu_' . $menu->name);
     }
 }
