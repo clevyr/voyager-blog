@@ -2,6 +2,7 @@
     "name": "clevyr/voyager-blog",
     "description": "Voyager blog package using Laraberg",
     "type": "library",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Anthony Protano",
