@@ -406,9 +406,11 @@ class VoyagerBlogSeeder extends Seeder
         ]);
 
         // Get base menu
-        $menu = DB::table('menus')->find(1)->get('name');
+        $menu = DB::table('menus')->where('id', 1)->first();
 
-        // Clear cache
-        Cache::forget('voyager_menu_' . $menu->name);
+        if ($menu) {
+            // Clear cache
+            Cache::forget('voyager_menu_' . $menu->name);
+        }
     }
 }
