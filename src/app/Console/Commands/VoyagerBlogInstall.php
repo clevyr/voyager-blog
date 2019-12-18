@@ -49,8 +49,5 @@ class VoyagerBlogInstall extends Command
         // Run Publish
         $this->info('Publishing Files');
         $this->call('vendor:publish', ['--provider' => VoyagerBlogServiceProvider::class]);
-
-        $this->info('Clearing Cache');
-        $this->call('cache:clear');
     }
 }

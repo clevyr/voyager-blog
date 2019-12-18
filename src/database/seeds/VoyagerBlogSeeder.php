@@ -4,6 +4,7 @@ namespace Clevyr\VoyagerBlog\Database\Seeds;
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use TCG\Voyager\Models\Permission;
 
@@ -403,5 +404,11 @@ class VoyagerBlogSeeder extends Seeder
             'route' => 'voyager.blog-tags.index',
             'parameters' => null
         ]);
+
+        // Get base menu
+        $menu_name = DB::table('menus')->find(1)->pluck('name');
+
+        // Clear cache
+        Cache::forget('voyager_menu_' . $menu_name);
     }
 }
